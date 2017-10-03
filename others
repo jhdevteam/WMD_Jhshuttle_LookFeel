@@ -1,0 +1,131 @@
+componentDidMount()
+
+{
+
+    var rx = this;
+
+    this.props.getPresentPosition();
+
+    setTimeout(function() {
+
+        rx.props.getRouteDetails();
+
+    }, 1000);
+
+}
+
+
+
+componentDidUpdate(prevProps, prevState) {
+
+    if (this.props.pickDropData.pickUp && this.props.pickDropData.dropOff)
+
+    {
+
+        if ((prevProps.pickDropData.pickUp !== this.props.pickDropData.pickUp) || (prevProps.pickDropData.dropOff !== this.props.pickDropData.dropOff)) {
+
+            this.props.getRouteResult(this.props.pickDropData.pickUp, this.props.pickDropData.dropOff);
+
+        }
+
+    }
+
+}
+
+
+const region = {
+
+        longitude: -71.05977,
+
+        latitude: 42.35843,
+
+        latitudeDelta: 0.0922,
+
+        longitudeDelta: 0.0421
+
+    }
+
+    <Container >
+
+    <View style = {
+        {
+            height: 78
+        }
+    } >
+
+    <Header statusBarProps = {
+        {
+            barStyle: 'light-content'
+        }
+    }
+leftComponent = { < JHLogoComponent / >
+}
+rightComponent = { < HeaderCustomComponent / >
+}
+outerContainerStyles = {
+    {
+        backgroundColor: '#566AB5',
+        height: 78
+    }
+}
+/>
+
+</View>
+
+{
+
+    this.props.LocatioDetails &&
+
+        <MapComponent region = {
+            region
+        }
+
+    pickDropDeatils = {
+        this.props.LocatioDetails
+    }
+
+    getDropPicLocation = {
+        this.props.getDropPicLocation
+    }
+
+    pickDropData = {
+        this.props.pickDropData
+    }
+
+    toggleShowRouteTime = {
+        this.props.toggleShowRouteTime
+    }
+
+    ShowHide = {
+        this.props.ShowHide
+    }
+
+    getRouteResult = {
+        this.props.getRouteResult
+    }
+
+    RouteResult = {
+        this.props.RouteResult
+    }
+
+    toggleShowRouteDeatils = {
+        this.props.toggleShowRouteDeatils
+    }
+
+    showHideRt = {
+        this.props.showHideRt
+    }
+
+    getPickDropTimeDetails = {
+        this.props.getPickDropTimeDetails
+    }
+
+    PickDropTime = {
+        this.props.PickDropTime
+    }
+
+    />
+
+}
+
+</Container>
