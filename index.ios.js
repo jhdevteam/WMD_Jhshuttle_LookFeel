@@ -15,8 +15,8 @@ import { WeatherWidget } from 'react-native-weather';
 import MapView from 'react-native-maps';
 import ModalDropdown from 'react-native-modal-dropdown';
 
-import renderIf from './renderIf';
-import renderIfElse from './renderIfElse';
+import renderIf from './constants/renderIf';
+import renderIfElse from './constants/renderIfElse';
 import MockData from './constants/mockData';
 import DictStyle from './constants/dictStyle';
 
@@ -84,11 +84,13 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   ModalDropDownTextOption: {
+    flex:1, 
     marginBottom:5,
     marginLeft: 10,
     fontSize:15, 
     fontWeight: 'normal', 
     color: '#666',
+    width: 290,
   },
   ModalDropDownLabel: {
     position:'absolute',
@@ -125,7 +127,7 @@ export default class JHShuttleServiceApp extends Component {
             <WeatherComponent />
           </View>
           <View>
-            <MapComponent /> 
+            <MapComponent {...this.props} /> 
           </View>
           <View style={styles.ModalDroDownContainer}>
             <ModalDropDownComponents />
